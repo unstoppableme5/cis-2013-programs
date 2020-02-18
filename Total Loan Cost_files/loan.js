@@ -15,7 +15,7 @@ var $ = function (id)
 */
  var calculate = function()
  {
-    $("total_cost").value = $("loan_length").value * $("monthly_payment").value;
+   document.getElementById("total_cost").value = document.getElementById("loan_length").value * document.getElementById("monthly_payment").value;
  }
  
  window.onload = function () 
