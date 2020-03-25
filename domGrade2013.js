@@ -1,8 +1,8 @@
 function gradeCalculator(){
-    var floatHwPts = document.getElementById('hw_pts').value;
-    var floatMidPts = document.getElementById('mid_pts').value;
-    var floatFinalPts = document.getElementById('fin_pts').value;
-    var floatTotalPts = floatHwPts + floatMidPts + floatFinalPts;
+    var floatHwPts = parseFloat(document.getElementById('hw_pts').value);
+    var floatMidPts = parseFloat(document.getElementById('mid_pts').value);
+    var floatFinalPts = parseFloat(document.getElementById('fin_pts').value);
+    var floatTotalPts = parseFloat(floatHwPts + floatMidPts + floatFinalPts);
     var finalGrade = "";
 
     if(document.getElementById('grade_option').value == 1){
