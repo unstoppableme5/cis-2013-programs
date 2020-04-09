@@ -12,13 +12,25 @@ function guess(){
 	var element = document.getElementById("instruction");
 	//make the element visible
 	element.hidden = false;
-
 	//if the guess is correct alert to the user
-	if(intGuess == intRandom){
-		alert("You guessed the value " + intRandom + " after " + intCount + " trys. Congrats!");
+	if(isGuessInvalid(intGuess)){
+		element.innerText = "That guess was invalid";		
+	}
+	else if(intGuess == intRandom){
+		//if is to avoid divide by zero error
+		if(intCount == 0){
+			alert("You guessed the value " + intRandom + " after " + intCount + " trys. Congrats! " +
+			" You scored " + parseInt((intMaxInput - intMinInput)) + " points.");
+		}
+		else{
+			alert("You guessed the value " + intRandom + " after " + intCount + " trys. Congrats! " +
+			" You scored " + parseInt((intMaxInput - intMinInput) / intCount) + " points.");
+		}
 		//hide the submit button and show the play again button
 		document.getElementById("submit").hidden = true;
 		document.getElementById("playAgain").hidden = false;
+		element.hidden = true;
+
 	}
 	//if the number has been guessed tell the user to try again
 	else if(arrayGuessed.includes(intGuess)){
@@ -37,6 +49,10 @@ function guess(){
 	arrayGuessed.push(intGuess);
 	//increment the number of trys
 	intCount++;
+}
+
+function isGuessInvalid(intGuess){
+	return(isNaN(intGuess) || (intGuess > intMaxInput && intGuess < intMinInput));
 }
 
 //sets the random number value and starts the game
