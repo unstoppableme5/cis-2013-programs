@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+   <title>The Number Guessing Game (with input validation)</title>
+   <script src="guess.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark m-3">
+   <div id="startMenu" class="container float-center">
+      <h1 class="jumbotron text-center">Number Guessing Game!</h1>
+      <div class="row bg-secondary m-3 p-3 rounded">
+         <div class=col-md-4></div>
+         <div class="form-group col-md-4">
+            <label class="text-white">Select the difficulty</label>
+            <select id="selectDifficulty" class="form-control" onchange="setMinMax()">
+               <option value="easy">Easy</option>
+               <option value="medium">Medium</option>
+               <option class="bg-warning" value="hard">Hard</option>
+               <option class="bg-dark text-white" value="impossible">Impossible</option>
+               <option class="" value="custom">Custom</option>
+            </select>
+            <label class="text-white">Minimum Value</label>
+            <input class="form-control" id="minInput" placeholder="0" type="number" value="">
+            <label class="text-white">Maximum Value</label>
+            <input class="form-control" id="maxInput" placeholder="0" type="number" value=""/>
+            <br>
+            <button class="btn btn-primary" onclick="startGame()">Start Game!</button>
+         </div>
+         <div class=col-md-4></div>
+      </div>
+   </div>
+   <div id="game" class="container float-center" hidden="hidden">
+      <h1 class="jumbotron text-center">Number Guessing Game!</h1>
+      <div class="row bg-secondary m-3 p-3 rounded">
+         <div class=col-md-4></div>
+         <div class="form-group col-md-4">
+            <label id="pleaseGuess" class="text-white"></label>
+            <div id="instruction" class="alert alert-danger" hidden="hidden"></div>
+            <br>
+            <input class="form-control" id="numInput" placeholder="Guess a number" type="number" value="">
+            <br>
+            <button id="submit" class="btn btn-primary" onclick="guess()">Submit</button>
+            <button id="playAgain" class="btn btn-success" onclick="location.reload();" hidden="hidden">Play Again</button>
+         </div>
+         <div class=col-md-4></div>
+      </div>
+   </div>
+</body>
+
